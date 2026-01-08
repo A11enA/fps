@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfwwsix7m5qsx"]
+
+[ext_resource type="Texture2D" uid="uid://dgqqimm83nlod" path="res://Assets/Textures/checkboard.png" id="1_mcmyp"]
+[ext_resource type="Material" uid="uid://d1g8duaydiml4" path="res://Assets/Textures/foliage.tres" id="2_pnvcs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j67ap"]
+albedo_color = Color(0.500284, 0.2159, 0.14756, 1)
+albedo_texture = ExtResource("1_mcmyp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ruf7"]
+albedo_color = Color(0, 1, 0, 1)
+albedo_texture = ExtResource("1_mcmyp")
+
+[node name="Tree" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.577877, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+material = SubResource("StandardMaterial3D_j67ap")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.26229, 0)
+radius = 1.5
+material = SubResource("StandardMaterial3D_3ruf7")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17542, 0)
+radius = 1.75
+material = ExtResource("2_pnvcs")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91848, 0)
+radius = 2.0
+material = SubResource("StandardMaterial3D_3ruf7")

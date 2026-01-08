@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkqg2odamn25n"]
+
+[ext_resource type="PackedScene" uid="uid://dfwwsix7m5qsx" path="res://Scenes/tree.tscn" id="1_p1h80"]
+[ext_resource type="Material" uid="uid://d1g8duaydiml4" path="res://Assets/Textures/foliage.tres" id="2_02r0k"]
+[ext_resource type="PackedScene" uid="uid://57jafxdwq4yp" path="res://Scenes/player.tscn" id="3_bkycf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bdtbs"]
+size = Vector3(1, 0.0153809, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rahqu"]
+
+[sub_resource type="Sky" id="Sky_ia2lc"]
+sky_material = SubResource("ProceduralSkyMaterial_rahqu")
+
+[sub_resource type="Environment" id="Environment_o3est"]
+background_mode = 2
+sky = SubResource("Sky_ia2lc")
+ambient_light_color = Color(1, 0, 1, 1)
+ambient_light_energy = 6.24
+fog_enabled = true
+fog_light_color = Color(1, 0, 1, 1)
+fog_light_energy = 0.65
+fog_sun_scatter = 0.39
+fog_density = 0.0345
+
+[node name="World" type="Node3D"]
+
+[node name="Tree" parent="." instance=ExtResource("1_p1h80")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.577877, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.180908, 0)
+use_collision = true
+size = Vector3(20, 0.5, 20)
+material = ExtResource("2_02r0k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+shape = SubResource("BoxShape3D_bdtbs")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_o3est")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.897882, 0, -0.440237, 0, 1, 0, 0.440237, 0, -0.897882, -22.5369, 17.5336, -13.596)
+
+[node name="Player" parent="." instance=ExtResource("3_bkycf")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -5.98268, 0.741195, 0.074769)
