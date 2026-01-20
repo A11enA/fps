@@ -15,19 +15,23 @@ albedo_texture = ExtResource("1_mcmyp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.577877, 0)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+use_collision = true
 material = SubResource("StandardMaterial3D_j67ap")
 
 [node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.26229, 0)
+use_collision = true
 radius = 1.5
 material = SubResource("StandardMaterial3D_3ruf7")
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17542, 0)
+use_collision = true
 radius = 1.75
 material = ExtResource("2_pnvcs")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91848, 0)
+use_collision = true
 radius = 2.0
 material = SubResource("StandardMaterial3D_3ruf7")
