@@ -1,5 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://37dwr71y5p7n"]
+[gd_scene load_steps=4 format=3 uid="uid://37dwr71y5p7n"]
 
 [ext_resource type="PackedScene" uid="uid://bdd0e52yxt64n" path="res://Assets/Models/projectile_model.glb" id="1_p6wmf"]
+[ext_resource type="Shader" path="res://Assets/Shaders/projectile.gdshader" id="2_5i48t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iaskf"]
+render_priority = 0
+shader = ExtResource("2_5i48t")
+shader_parameter/tail_color = Color(0, 0.670588, 1, 1)
+shader_parameter/head_color = Color(1, 1, 0, 1)
 
 [node name="projectile_model" instance=ExtResource("1_p6wmf")]
+
+[node name="Projectile" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_iaskf")

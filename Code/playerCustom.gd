@@ -6,9 +6,15 @@ extends CharacterBody3D
 #capture mouse
 @export var gravity:float = 10
 
+@onready var animationPlayer = $AnimationPlayer
+
 func ready() -> void:
 	#capture the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	#$"Camera3D/Weapon Model/gun_model/projectile_spawn/triangles".visible = false
+	#$"Camera3D/Weapon Model/gun_model/projectile_spawn/magic".visible = false
+	#%Muzzle_Light.visible = false
 
 func _unhandled_input(event: InputEvent) -> void: 
 	
@@ -51,3 +57,22 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 10
 	
 	move_and_slide()
+	
+	if Input.is_action_pressed("shoot_key") and $bullet_timer.is_stopped():
+		shoot_bullet()
+
+func shoot_bullet():
+	#get a reference projectile scene
+	const BULLET_3D = preload("res://Scenes/star.tscn") ## this is the path to your projectile scene
+	# instantiate
+	var new_bullet = BULLET_3D.instantiate()
+	# add instance as a child
+	%projectile_spawn.add_child(new_bullet) ## used make unique name on the spawn point
+	print ("shoot!")
+	# connect to spawn location
+	new_bullet.transform = %projectile_spawn.global_transform
+	# play sounds , turn on light , particles?
+	$bullet_timer.start() ## add a timer to the player
+	# %Muzzle_Light.visible = true ## add a light to somewhere on the weapon that lights up when the gun fires
+	
+	animationPlayer.play("gun")

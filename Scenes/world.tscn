@@ -13,10 +13,10 @@ sky_material = SubResource("ProceduralSkyMaterial_rahqu")
 [sub_resource type="Environment" id="Environment_o3est"]
 background_mode = 2
 sky = SubResource("Sky_ia2lc")
-ambient_light_color = Color(1, 0, 1, 1)
+ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 6.24
 fog_enabled = true
-fog_light_color = Color(1, 1, 1, 1)
+fog_light_color = Color(0, 0, 0, 1)
 fog_sun_scatter = 0.39
 fog_density = 0.0345
 

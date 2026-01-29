@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://57jafxdwq4yp"]
+[gd_scene load_steps=18 format=3 uid="uid://57jafxdwq4yp"]
 
 [ext_resource type="Script" path="res://Code/playerCustom.gd" id="1_c6444"]
 [ext_resource type="PackedScene" uid="uid://bqjmhvjrbgcei" path="res://Assets/Models/gun_model.glb" id="2_cwgka"]
 [ext_resource type="Texture2D" uid="uid://cj0syosfed0dj" path="res://Assets/Textures/magic_01.png" id="3_vvte2"]
+[ext_resource type="Texture2D" uid="uid://b7tt1qckjy26n" path="res://Assets/Textures/reticle.png" id="4_xfhv6"]
+[ext_resource type="AudioStream" uid="uid://cy5rkulr1bk3b" path="res://Assets/Audio/gun_shoot.wav" id="5_s4tlg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ex8xc"]
 transparency = 1
@@ -18,7 +20,7 @@ curve = SubResource("Curve_e364b")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2fi7m"]
 emission_shape = 3
-emission_box_extents = Vector3(0.3, 0.3, 5)
+emission_box_extents = Vector3(1, 1, 1)
 direction = Vector3(0, 0, 5)
 spread = 180.0
 gravity = Vector3(0, 0, 0)
@@ -46,6 +48,140 @@ size = Vector2(1, 1)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u4qw6"]
 height = 1.0
 
+[sub_resource type="Animation" id="Animation_nuj4u"]
+resource_name = "gun"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/Weapon Model/gun_model/Muzzle_Light:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_s4tlg"), ExtResource("5_s4tlg")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Weapon Model/gun_model/projectile_spawn/triangles:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/Weapon Model/gun_model/projectile_spawn/magic:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/Weapon Model:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.523599, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3jqrt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/Weapon Model/gun_model/Muzzle_Light:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_s4tlg")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Weapon Model/gun_model/projectile_spawn/triangles:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/Weapon Model/gun_model/projectile_spawn/magic:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/Weapon Model:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0g6lx"]
+_data = {
+"RESET": SubResource("Animation_3jqrt"),
+"gun": SubResource("Animation_nuj4u")
+}
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_c6444")
 
@@ -54,28 +190,32 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451103, 0)
 
 [node name="Weapon Model" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 
 [node name="gun_model" parent="Camera3D/Weapon Model" instance=ExtResource("2_cwgka")]
-transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 0.45, -0.2, -0.3)
+transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 0.45, -0.2, -0.351337)
 
 [node name="projectile_spawn" type="Marker3D" parent="Camera3D/Weapon Model/gun_model"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.388458)
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Camera3D/Weapon Model/gun_model/projectile_spawn"]
+[node name="triangles" type="GPUParticles3D" parent="Camera3D/Weapon Model/gun_model/projectile_spawn"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19209e-07, 0, 0.757841)
 material_override = SubResource("StandardMaterial3D_ex8xc")
+emitting = false
 process_material = SubResource("ParticleProcessMaterial_2fi7m")
 draw_pass_1 = SubResource("PrismMesh_ff1gw")
 
-[node name="projectile" type="Area3D" parent="Camera3D/Weapon Model/gun_model/projectile_spawn"]
-visible = false
-
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="Camera3D/Weapon Model/gun_model/projectile_spawn"]
-transform = Transform3D(1, 3.74133e-08, 4.70848e-09, -3.74133e-08, 0.968817, 0.247777, 4.70848e-09, -0.247777, 0.968817, -1.19209e-07, 0, 0.815374)
+[node name="magic" type="GPUParticles3D" parent="Camera3D/Weapon Model/gun_model/projectile_spawn"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.19209e-07, 0, 0.815374)
 material_override = SubResource("StandardMaterial3D_mv1u0")
+emitting = false
+amount = 3
 process_material = SubResource("ParticleProcessMaterial_7rs18")
 draw_pass_1 = SubResource("PlaneMesh_q6etd")
 
-[node name="muzzle light" type="OmniLight3D" parent="Camera3D/Weapon Model/gun_model"]
+[node name="Muzzle_Light" type="OmniLight3D" parent="Camera3D/Weapon Model/gun_model"]
+unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_u4qw6")
@@ -86,3 +226,30 @@ size = Vector3(0.245117, 1.33984, 0.342773)
 [node name="Head" type="CSGBox3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.485555, -0.0722387)
 size = Vector3(0.245117, 0.486328, 0.342773)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -77.0
+offset_right = 77.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_xfhv6")
+
+[node name="bullet_timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0g6lx")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.357579)
+stream = ExtResource("5_s4tlg")
