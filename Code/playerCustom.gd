@@ -12,9 +12,9 @@ func ready() -> void:
 	#capture the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	#$"Camera3D/Weapon Model/gun_model/projectile_spawn/triangles".visible = false
-	#$"Camera3D/Weapon Model/gun_model/projectile_spawn/magic".visible = false
-	#%Muzzle_Light.visible = false
+	$"Camera3D/Weapon Model/gun_model/projectile_spawn/triangles".emitting = false
+	$"Camera3D/Weapon Model/gun_model/projectile_spawn/magic".emitting = false
+	%Muzzle_Light.light_energy = 0
 
 func _unhandled_input(event: InputEvent) -> void: 
 	
@@ -74,5 +74,6 @@ func shoot_bullet():
 	# play sounds , turn on light , particles?
 	$bullet_timer.start() ## add a timer to the player
 	# %Muzzle_Light.visible = true ## add a light to somewhere on the weapon that lights up when the gun fires
+	
 	
 	animationPlayer.play("gun")

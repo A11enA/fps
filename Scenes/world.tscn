@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkqg2odamn25n"]
+[gd_scene format=3 uid="uid://bkqg2odamn25n"]
 
 [ext_resource type="PackedScene" uid="uid://dfwwsix7m5qsx" path="res://Scenes/tree.tscn" id="1_p1h80"]
 [ext_resource type="PackedScene" uid="uid://bj173xdv4acu7" path="res://Scenes/Land.tscn" id="2_pmlxx"]
 [ext_resource type="PackedScene" uid="uid://57jafxdwq4yp" path="res://Scenes/player.tscn" id="3_bkycf"]
 [ext_resource type="PackedScene" uid="uid://dbnmi6rw36ys3" path="res://Scenes/hopping_box.tscn" id="4_ysiqf"]
+[ext_resource type="PackedScene" uid="uid://5dn835ku5hv5" path="res://Scenes/mob.tscn" id="5_fo5ed"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rahqu"]
 
@@ -20,42 +21,45 @@ fog_light_color = Color(0, 0, 0, 1)
 fog_sun_scatter = 0.39
 fog_density = 0.0345
 
-[node name="World" type="Node3D"]
+[node name="World" type="Node3D" unique_id=659965137]
 
-[node name="Tree" parent="." instance=ExtResource("1_p1h80")]
+[node name="Tree" parent="." unique_id=1241824635 instance=ExtResource("1_p1h80")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.577877, 0)
 
-[node name="Land" parent="." instance=ExtResource("2_pmlxx")]
+[node name="Land" parent="." unique_id=1994089917 instance=ExtResource("2_pmlxx")]
 
-[node name="Land2" parent="." instance=ExtResource("2_pmlxx")]
+[node name="Land2" parent="." unique_id=130827969 instance=ExtResource("2_pmlxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1801, 8.25767, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1287067504]
 environment = SubResource("Environment_o3est")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1625730133]
 transform = Transform3D(-0.897882, 0, -0.440237, 0, 1, 0, 0.440237, 0, -0.897882, -22.5369, 17.5336, -13.596)
 
-[node name="Player" parent="." instance=ExtResource("3_bkycf")]
+[node name="Player" parent="." unique_id=1422692193 instance=ExtResource("3_bkycf")]
 transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -5.98268, 0.741195, 0.074769)
 
-[node name="hoppingBox" parent="." instance=ExtResource("4_ysiqf")]
+[node name="hoppingBox" parent="." unique_id=1893827629 instance=ExtResource("4_ysiqf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4088, 1.40239, 7.37747)
 
-[node name="hoppingBox2" parent="." instance=ExtResource("4_ysiqf")]
+[node name="hoppingBox2" parent="." unique_id=1410976533 instance=ExtResource("4_ysiqf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5145, 2.81909, 2)
 
-[node name="hoppingBox3" parent="." instance=ExtResource("4_ysiqf")]
+[node name="hoppingBox3" parent="." unique_id=1308728413 instance=ExtResource("4_ysiqf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5145, 4.81909, -3)
 
-[node name="hoppingBox4" parent="." instance=ExtResource("4_ysiqf")]
+[node name="hoppingBox4" parent="." unique_id=770655156 instance=ExtResource("4_ysiqf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5145, 6.81909, -8)
 
-[node name="hoppingBox5" parent="." instance=ExtResource("4_ysiqf")]
+[node name="hoppingBox5" parent="." unique_id=1034555024 instance=ExtResource("4_ysiqf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5145, 8.81909, -3)
 
-[node name="Tree2" parent="." instance=ExtResource("1_p1h80")]
+[node name="Tree2" parent="." unique_id=1520805395 instance=ExtResource("1_p1h80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 9.57788, 6)
 
-[node name="Tree3" parent="." instance=ExtResource("1_p1h80")]
+[node name="Tree3" parent="." unique_id=1798733244 instance=ExtResource("1_p1h80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 9.15575, -7)
+
+[node name="CharacterBody3D" parent="." unique_id=1830664672 instance=ExtResource("5_fo5ed")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 1, 0)
